@@ -12,7 +12,7 @@ import {makeAction} from '../redux/actions/makeAction';
 class PaneContainer extends React.Component {
     render() {
         return (
-            <p>tomek</p>);
+            <p>Example message</p>);
     }
 }
 
