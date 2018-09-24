@@ -11,7 +11,7 @@
     "privateKeyPath": ""
   },
   "connection": {
-    "hostIp": "10.42.24.26",
+    "hostIp": "<<Your CloudUX hostIP>>",
     "hostPort": "",
     "proxyPort": "8080"
   }

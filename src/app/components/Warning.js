@@ -7,7 +7,7 @@ const Warning = ({closeWindow}) => {
             <div className="cux-notification">
                 <div className="warning"/>
                 <div>Not enough data</div>
-                <div className="message">fill all fields</div>
+                <div className="message">Fill all fields</div>
                 <div className="message">
                     <div>
                         <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '50px', height: '25px'}} value="Close" onClick={closeWindow}/>
