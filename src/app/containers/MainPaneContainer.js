@@ -43,7 +43,7 @@ class PaneContainer extends React.Component {
                 </div>
                 <div className="cux-form-button-container">
                     <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px', 'margin-right': '10px'}} value="Generate key" onClick={this.generateRandomKey.bind()}/>
-                    <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '95px', height: '25px'}} value="Create Account" onClick={this.createAccount.bind()}/>
+                    <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px'}} value="    Confirm" onClick={this.confirm.bind()}/>
                 </div>
                 <br/>
                 {this.state.isWarning && <Warning closeWindow={this.closeWindows}/>}
@@ -66,7 +66,7 @@ class PaneContainer extends React.Component {
         this.setState({username: event.target.value, isUsername: true});
     };
 
-    createAccount = () => {
+    confirm = () => {
         if (!this.state.isUsername || this.state.username.length < 1) {
             this.setState({isWarning: true});
         }
