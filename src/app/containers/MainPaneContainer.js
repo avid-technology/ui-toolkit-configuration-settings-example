@@ -5,15 +5,19 @@
 
 import React from 'react';
 import Header from '../components/Header';
+import Warning from '../components/Warning';
+import Approved from '../components/Approved';
 
 class PaneContainer extends React.Component {
     constructor() {
         super();
         this.state = {
             applicationKey: '',
-            isApplicationKey: false,
             username: '',
+            isApplicationKey: false,
             isUsername: false,
+            isWarning: false,
+            isApproved: false,
         };
     }
 
@@ -25,8 +29,7 @@ class PaneContainer extends React.Component {
                     <div className="cux-form-field-wrapper cux-required" style={{'margin-top': '2px', 'margin-bottom': '5px', 'margin-right': '10px'}}>
                         <label className="cux-field-item-label" htmlFor="userName">Generate application key </label>
                         <div className="cux-form-input-default-width">
-                            <input type="text" className="cux-form-input-text" id="key" disabled="true"
-                                value={this.state.applicationKey}/>
+                            <input type="text" className="cux-form-input-text" id="key" disabled="true" value={this.state.applicationKey}/>
                         </div>
                     </div>
                 </div>
@@ -34,20 +37,19 @@ class PaneContainer extends React.Component {
                     <div className="cux-form-field-wrapper cux-required" style={{'margin-right': '10px'}}>
                         <label className="cux-field-item-label" htmlFor="userName">Set username </label>
                         <div className="cux-form-input-default-width">
-                            <input type="text" className="cux-form-input-text" id="userName"
-                                onInput={this.readUsername.bind()}/>
+                            <input type="text" className="cux-form-input-text" id="userName" onInput={this.readUsername.bind()}/>
                         </div>
                     </div>
                 </div>
                 <div className="cux-form-button-container">
-                    <input type="button" className="cux-button-size-small cux-button-type-default"
-                        style={{width: '85px', height: '25px', 'margin-right': '10px'}} value="Generate key"
-                        onClick={this.generateRandomKey.bind()}/>
-                    <input type="button" className="cux-button-size-small cux-button-type-default"
-                        style={{width: '95px', height: '25px'}} value="Create Account" onClick={this.createAccount.bind()}/>
+                    <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px', 'margin-right': '10px'}} value="Generate key" onClick={this.generateRandomKey.bind()}/>
+                    <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '95px', height: '25px'}} value="Create Account" onClick={this.createAccount.bind()}/>
                 </div>
                 <br/>
+                {this.state.isWarning && <Warning closeWindow={this.closeWindows}/>}
+                {this.state.isApproved && <Approved closeWindow={this.closeWindows} username={this.state.username} applicationKey={this.state.applicationKey}/>}
             </div>
+
         );
     }
 
@@ -65,18 +67,20 @@ class PaneContainer extends React.Component {
     };
 
     createAccount = () => {
-        const username = this.state.username;
-        const applicationKey = this.state.applicationKey;
         if (!this.state.isUsername || this.state.username.length < 1) {
-            alert('Set username');
+            this.setState({isWarning: true});
         }
         if (!this.state.isApplicationKey) {
-            alert('Please generate application Key');
+            this.setState({isWarning: true});
         }
         if (this.state.isApplicationKey && this.state.isUsername && this.state.username.length > 1) {
-            alert('Generated user ' + username+ ', with key: ' + applicationKey);
+            this.setState({isApproved: true});
         }
-    }
+    };
+
+    closeWindows = () => {
+        this.setState({isWarning: false, isApproved: false});
+    };
 }
 
 export default PaneContainer;
