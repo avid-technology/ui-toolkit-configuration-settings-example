@@ -34,6 +34,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "base64-img": "^1.0.4",
+    "cloudux-bootstrap": "0.0.5",
     "cloudux-l10n": "^1.0.1",
     "compression-webpack-plugin": "^1.1.11",
     "css-loader": "^1.0.0",

@@ -4,6 +4,7 @@
 
 import ReactDOM from 'react-dom';
 import React from 'react';
+import 'cloudux-bootstrap/dist/css/cloudux.min.css';
 
 import PaneContainer from './containers/MainPaneContainer';
 
