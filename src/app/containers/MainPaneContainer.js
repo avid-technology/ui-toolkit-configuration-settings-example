@@ -12,7 +12,7 @@ class PaneContainer extends React.Component {
     constructor() {
         super();
         this.state = {
-            applicationKey: '',
+            randomString: '',
             username: '',
             isApplicationKey: false,
             isUsername: false,
@@ -27,10 +27,10 @@ class PaneContainer extends React.Component {
                 <Header/>
                 <div>
                     <div className="cux-form-field-wrapper cux-required" style={{'margin-top': '2px', 'margin-bottom': '5px', 'margin-right': '10px'}}>
-                        <label className="cux-field-item-label" htmlFor="userName">Generate application key </label>
+                        <label className="cux-field-item-label" htmlFor="userName">Generate example String </label>
                         <div className="cux-form-input-default-width">
-                            <input type="text" className="cux-form-input-text" style={{width:'70%'}} id="key" disabled="true" value={this.state.applicationKey}/>
-                            <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px', 'margin-right': '5px', 'margin-left': '5px'}} value="Generate key" onClick={this.generateRandomKey.bind()}/>
+                            <input type="text" className="cux-form-input-text" style={{width:'70%'}} id="key" disabled="true" value={this.state.randomString}/>
+                            <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px', 'margin-right': '5px', 'margin-left': '5px'}} value="   Generate" onClick={this.generateRandomKey.bind()}/>
 
                         </div>
                     </div>
@@ -48,7 +48,7 @@ class PaneContainer extends React.Component {
                 </div>
                 <br/>
                 {this.state.isWarning && <Warning closeWindow={this.closeWindows}/>}
-                {this.state.isApproved && <Approved closeWindow={this.closeWindows} username={this.state.username} applicationKey={this.state.applicationKey}/>}
+                {this.state.isApproved && <Approved closeWindow={this.closeWindows} username={this.state.username} randomString={this.state.randomString}/>}
             </div>
 
         );
@@ -60,7 +60,7 @@ class PaneContainer extends React.Component {
         for (let i = 0; i < 25; i++) {
             text += possible.charAt(Math.floor(Math.random() * possible.length));
         }
-        this.setState({applicationKey: text, isApplicationKey: true});
+        this.setState({randomString: text, isApplicationKey: true});
     };
 
     readUsername = (event) => {
