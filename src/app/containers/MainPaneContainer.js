@@ -29,7 +29,9 @@ class PaneContainer extends React.Component {
                     <div className="cux-form-field-wrapper cux-required" style={{'margin-top': '2px', 'margin-bottom': '5px', 'margin-right': '10px'}}>
                         <label className="cux-field-item-label" htmlFor="userName">Generate application key </label>
                         <div className="cux-form-input-default-width">
-                            <input type="text" className="cux-form-input-text" id="key" disabled="true" value={this.state.applicationKey}/>
+                            <input type="text" className="cux-form-input-text" style={{width:'70%'}} id="key" disabled="true" value={this.state.applicationKey}/>
+                            <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px', 'margin-right': '5px', 'margin-left': '5px'}} value="Generate key" onClick={this.generateRandomKey.bind()}/>
+
                         </div>
                     </div>
                 </div>
@@ -37,12 +39,11 @@ class PaneContainer extends React.Component {
                     <div className="cux-form-field-wrapper cux-required" style={{'margin-right': '10px'}}>
                         <label className="cux-field-item-label" htmlFor="userName">Set username </label>
                         <div className="cux-form-input-default-width">
-                            <input type="text" className="cux-form-input-text" id="userName" onInput={this.readUsername.bind()}/>
+                            <input type="text" className="cux-form-input-text" style={{width:'70%'}} id="userName" onInput={this.readUsername.bind()}/>
                         </div>
                     </div>
                 </div>
                 <div className="cux-form-button-container">
-                    <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px', 'margin-right': '10px'}} value="Generate key" onClick={this.generateRandomKey.bind()}/>
                     <input type="button" className="cux-button-size-small cux-button-type-default" style={{width: '85px', height: '25px'}} value="    Confirm" onClick={this.confirm.bind()}/>
                 </div>
                 <br/>
